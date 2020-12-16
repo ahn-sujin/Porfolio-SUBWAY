@@ -1,37 +1,207 @@
 $(function () {
 
+    //변수선언
     var win_w = $(window).width();
+    var sec_pos = [];
+    var html_tmp = '';
+    var last = 0;
 
-    $(window).on('resize',function(){
+    var index = 0;
+    var base_line = -300;
+    var mvTrue = true;
+
+    //위치 값 구하기 함수 
+    function save_offset_top() {
+        sec_pos = []; //초기화 
+
+        $('section').each(function () {
+            var this_offset = $(this).offset().top;
+            sec_pos.push(this_offset);
+        });
+
+        last = $('section').last().offset().top + $('section').last().height();
+        sec_pos.push(last);
+
+    }
+
+    // 페이지 이동 함수1(movepage)
+    function move_page() {
+        $('html,body').stop().animate({ 'scrollTop': sec_pos[index] }, 1000);
+    }
+
+    //페이지 이동 함수2(mousewheel)
+    function mouse_wheel_scroll() {
+        $(window).on('mousewheel DOMMouseScroll', function (e) {
+
+            e.bubbles == false;
+            var evt = e.originalEvent;
+            var result;
+
+            result = (evt.wheelDelta) ? -evt.wheelDelta : evt.detail * 40;
+
+            if (mvTrue) {
+                mvTrue = false;
+                (result > 0) ? index += 1 : index -= 1;
+                if (index >= $('section').length) {
+                    index = $('section').length;
+                } else if (index < 0) {
+                    index = 0;
+                }
+                $('html, body').animate({ 'scrollTop': sec_pos[index] }, 700, function () {
+                    mvTrue = true;
+                });
+            }
+
+        });
+    }
+
+    //pagenation 생성 
+    $('section').each(function () {
+        var page_name = $(this).attr('data-page-name');
+        html_tmp += '<a href="#">' + page_name + '</a>';
+    });
+    $('.pagenation').html(html_tmp);
+
+    //pagenation 이벤트 연결
+    $('.pagenation').on('click', 'a', function () {
+        index = $(this).index();
+        move_page();
+    });
+
+    //스크롤 모션 
+    $(window).on('scroll', function () {
+        var scroll = $(this).scrollTop();
+
+        $('section').each(function (num) {
+            if (scroll >= sec_pos[num] + base_line && scroll < sec_pos[num + 1]) {
+                $('section').removeClass('on').eq(num).addClass('on');
+                $('.pagenation').children('a').removeClass('on').eq(num).addClass('on');
+
+                if (scroll >= sec_pos[1] + base_line && scroll < sec_pos[2]) {
+                    $('#header').addClass('on');
+                } else if (scroll >= sec_pos[3] + base_line && scroll < sec_pos[5]) {
+                    $('#header').addClass('on');
+                } else {
+                    $('#header').removeClass('on');
+                }
+            }
+
+
+        });
+
+        
+    });
+
+
+
+    //리사이즈 - 반응형 
+    $(window).on('resize', function () {
         win_w = $(this).width();
+
+        if (win_w >= 980) {
+            mouse_wheel_scroll();
+        } else {
+            $(window).off('mousewheel DOMMouseScroll')
+        }
+
     });
 
-/*-------gnb--------------------------------------*/    
-    $('#gnb>li').on('mouseenter',function(){
-        if(win_w >= 980){
-            $(this).children('.submenu').stop(true,true).show();
-        } else{
+    //최초 실행 - 함수 호출 
+    save_offset_top();
 
+    //강제 이벤트 실행
+    $(window).trigger('resize');
+
+
+
+
+
+
+/*-------visual--------------------------------------*/
+    var mySwiper = new Swiper('#visual .left.swiper-container', {
+        direction: 'vertical',
+        navigation: {
+            nextEl: '#visual .swiper-button-next',
+            prevEl: '#visual .swiper-button-prev',
+        },
+        autoplay: {
+            delay: 4000,
+        },
+
+    });
+
+    var mySwiper = new Swiper('#visual .right.swiper-container', {
+
+        navigation: {
+            nextEl: '#visual .swiper-button-next',
+            prevEl: '#visual .swiper-button-prev',
+        },
+        autoplay: {
+            delay: 4000,
+        },
+
+    });
+
+    var mySwiper = new Swiper('#visual .center.swiper-container', {
+        effect: 'fade',
+        pagination: {
+            el: '#visual .swiper-pagination',
+            type: 'fraction',
+        },
+        navigation: {
+            nextEl: '#visual .swiper-button-next',
+            prevEl: '#visual .swiper-button-prev',
+        },
+        autoplay: {
+            delay: 4000,
+        },
+
+    });
+
+
+
+/*-------gnb--------------------------------------*/
+    $('#gnb>li').on('mouseenter', function () {
+        if (win_w >= 980) {
+            $(this).children('.submenu').stop(true, true).show();
+        } else {
+            $('#gnb>li>a').off('click');
+            $('#gnb>li>a').on('click',function(){
+                $('.submenu').stop().slideUp();
+                $(this).next('.submenu').stop().slideToggle();
+            });
         }
     });
 
-    $('#gnb>li').on('mouseleave',function(){
-        if(win_w >= 980){
-            $(this).children('.submenu').stop(true,true).hide();
+    $('#gnb>li').on('mouseleave', function () {
+        if (win_w >= 980) {
+            $(this).children('.submenu').stop(true, true).hide();
         }
     });
 
-/*-------menu--------------------------------------*/        
-    $('#menu .box').on('mouseenter',function(){
+    $('#header .toggle').on('click',function(){
+        $('#gnb').addClass('on');
+        $('.toggle').addClass('on');
+        $('.cancle').addClass('on');  
+    });
+
+    $('#header .cancle').on('click',function(){
+        $('#gnb').removeClass('on');
+        $('.toggle').removeClass('on');
+        $('.cancle').removeClass('on');
+    });
+
+/*-------menu--------------------------------------*/
+    $('#menu .box').on('mouseenter', function () {
         $(this).addClass('on');
     });
 
-    $('#menu .box').on('mouseleave',function(){
+    $('#menu .box').on('mouseleave', function () {
         $(this).removeClass('on');
     });
 
     //탭메뉴
-    $('.icon_menu>li').on('click',function(e){
+    $('.icon_menu>li').on('click', function (e) {
         e.preventDefault();
         var i = $(this).index();
 
@@ -42,37 +212,103 @@ $(function () {
 
     $('.icon_menu>li').first().trigger('click');
 
- /*-------news--------------------------------------*/
+/*-------news--------------------------------------*/
     var mySwiper = new Swiper('#news .swiper-container', {
         loop: true,
         slidesPerView: 4,
         spaceBetween: 30,
-        
+
         navigation: {
             nextEl: '#news .swiper-button-next',
             prevEl: '#news .swiper-button-prev',
         },
+
+        autoplay: {
+            delay: 2000,
+        },
     });
 
 
- /*-------franchisee--------------------------------------*/
-    $('#franchisee .contry').on('mouseenter',function(){
+/*-------franchisee--------------------------------------*/
+    $('#franchisee .store').on('mouseenter', function () {
         $(this).addClass('on');
+        $(this).siblings().addClass('on');
     });
-    $('#franchisee .contry').on('mouseleave',function(){
+    $('#franchisee .store').on('mouseleave', function () {
         $(this).removeClass('on');
-        $('#franchisee .store').addClass('on');
-    });
-    $('#franchisee .store').on('mouseleave',function(){
-        $(this).removeClass('on');
-        $('#franchisee .contry').addClass('on');
+        $(this).siblings().removeClass('on');
     });
 
+    //number motion
+    function counterUp(settings) {
+        var $settings = settings;
+        var $target = $settings.ele;
+        var countUpDatas = [];
+        var countFuncs;
+
+        var nums = [];
+        var delay = $settings.delay || 0.7;
+        var time = $settings.time || 400;
+        var divisions = time / delay;
+        var num = $settings.num;
+        //콤마가 있는지 체크 정규식
+        var isComma = /[0-9]+,[0-9]+/.test(num);
+        num = num.replace(/,/g, '');
+        // 숫자 목록 생성
+        for (var i = divisions; i >= 1; i--) {
+
+            //  int 인 경우 int로 유지
+            var newNum = parseInt(num / divisions * i);
+            // console.log( newNum, num / divisions * i)
+            // 쉼표가있는 경우 쉼표 유지
+            if (isComma) {
+                while (/(\d+)(\d{3})/.test(newNum.toString())) {
+                    newNum = newNum.toString().replace(/(\d+)(\d{3})/, '$1' + ',' + '$2');
+                }
+            }
+            nums.unshift(newNum);
+        }
+
+        countUpDatas = nums;
 
 
+        $target.text('0');
 
-    
-    $('#franchisee .contry').trigger('mouseenter');
+        // 완료 될 때까지 번호를 업데이트
+        function updateNum() {
+
+            $target.text(countUpDatas.shift());
+
+            //숫자를 담고 있는 배열 길이가 존재한다면 계속해서 루프 시킴.
+            if (countUpDatas.length) {
+                setTimeout(countFuncs, delay);
+            } else {
+                delete countUpDatas;
+                countUpDatas = null;
+                countFuncs = null;
+            }
+            // console.log( countUpDatas.length )
+        }
+        countFuncs = updateNum;
+        // 카운트 시작
+        setTimeout(countFuncs, delay);
+        
+    }
+
+    //실행할 카운트가 여러개일 경우 설정.
+    function numberMotion(items) {
+        if (Object.prototype.toString.call(items) !== '[object Array]') { return }
+        for (var i = 0; i < items.length; i++) {
+            counterUp({ num: items[i].num, ele: items[i].ele });
+        }
+    }
+
+    numberMotion([
+        { num: '106', ele: $('.contry .counter') },
+        { num: '40,906', ele: $('.store .counter') }
+    ]);
+
+
 
 
 
