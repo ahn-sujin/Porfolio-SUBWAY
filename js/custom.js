@@ -10,6 +10,10 @@ $(function () {
     var base_line = -300;
     var mvTrue = true;
 
+    let visibilityIds = ['#msg']; //must be an array, could have only one element
+    let counterClass = '.counter';
+    let defaultSpeed = 3000; //default value
+
     //위치 값 구하기 함수 
     function save_offset_top() {
         sec_pos = []; //초기화 
@@ -72,6 +76,8 @@ $(function () {
     $(window).on('scroll', function () {
         var scroll = $(this).scrollTop();
 
+        getVisibilityStatus();
+
         $('section').each(function (num) {
             if (scroll >= sec_pos[num] + base_line && scroll < sec_pos[num + 1]) {
                 $('section').removeClass('on').eq(num).addClass('on');
@@ -88,11 +94,62 @@ $(function () {
 
 
         });
-
-        
+    
     });
 
+    //카운트 모션
 
+    getVisibilityStatus();
+
+    function getVisibilityStatus() {
+        elValFromTop = [];
+        var windowHeight = $(window).height(),
+            windowScrollValFromTop = $(this).scrollTop();
+
+        visibilityIds.forEach(function (item, index) { 
+            try { 
+                elValFromTop[index] = Math.ceil($(item).offset().top);
+            } catch (err) {
+                return;
+            }
+            if ((windowHeight + windowScrollValFromTop) > elValFromTop[index]) {
+                counter_init(item);
+            }
+        });
+    }
+
+    function counter_init(groupId) {
+        let num, speed, direction, index = 0;
+        $(counterClass).each(function () {
+            num = $(this).attr('data-TargetNum');
+            speed = $(this).attr('data-Speed');
+            direction = $(this).attr('data-Direction');
+            easing = $(this).attr('data-Easing');
+            if (speed == undefined) speed = defaultSpeed;
+            $(this).addClass('c_' + index); 
+            doCount(num, index, speed, groupId, direction, easing);
+            index++;
+        });
+    }
+
+    function doCount(num, index, speed, groupClass, direction, easing) {
+        let className = groupClass + ' ' + counterClass + '.' + 'c_' + index;
+        if(easing == undefined) easing = "swing";
+        $(className).animate({
+            num
+        }, {
+            duration: +speed,
+            easing: easing,
+            step: function (now) {
+                if (direction == 'reverse') {
+                    $(this).text(num - Math.floor(now));
+                } else {
+                    $(this).text(Math.floor(now));
+                }
+            },
+            complete: doCount
+        });
+    }
 
     //리사이즈 - 반응형 
     $(window).on('resize', function () {
@@ -239,74 +296,7 @@ $(function () {
         $(this).siblings().removeClass('on');
     });
 
-    //number motion
-    function counterUp(settings) {
-        var $settings = settings;
-        var $target = $settings.ele;
-        var countUpDatas = [];
-        var countFuncs;
-
-        var nums = [];
-        var delay = $settings.delay || 0.7;
-        var time = $settings.time || 400;
-        var divisions = time / delay;
-        var num = $settings.num;
-        //콤마가 있는지 체크 정규식
-        var isComma = /[0-9]+,[0-9]+/.test(num);
-        num = num.replace(/,/g, '');
-        // 숫자 목록 생성
-        for (var i = divisions; i >= 1; i--) {
-
-            //  int 인 경우 int로 유지
-            var newNum = parseInt(num / divisions * i);
-            // console.log( newNum, num / divisions * i)
-            // 쉼표가있는 경우 쉼표 유지
-            if (isComma) {
-                while (/(\d+)(\d{3})/.test(newNum.toString())) {
-                    newNum = newNum.toString().replace(/(\d+)(\d{3})/, '$1' + ',' + '$2');
-                }
-            }
-            nums.unshift(newNum);
-        }
-
-        countUpDatas = nums;
-
-
-        $target.text('0');
-
-        // 완료 될 때까지 번호를 업데이트
-        function updateNum() {
-
-            $target.text(countUpDatas.shift());
-
-            //숫자를 담고 있는 배열 길이가 존재한다면 계속해서 루프 시킴.
-            if (countUpDatas.length) {
-                setTimeout(countFuncs, delay);
-            } else {
-                delete countUpDatas;
-                countUpDatas = null;
-                countFuncs = null;
-            }
-            // console.log( countUpDatas.length )
-        }
-        countFuncs = updateNum;
-        // 카운트 시작
-        setTimeout(countFuncs, delay);
-        
-    }
-
-    //실행할 카운트가 여러개일 경우 설정.
-    function numberMotion(items) {
-        if (Object.prototype.toString.call(items) !== '[object Array]') { return }
-        for (var i = 0; i < items.length; i++) {
-            counterUp({ num: items[i].num, ele: items[i].ele });
-        }
-    }
-
-    numberMotion([
-        { num: '106', ele: $('.contry .counter') },
-        { num: '40,906', ele: $('.store .counter') }
-    ]);
+    
 
 
 
