@@ -283,7 +283,7 @@ button{outline: none;}
 #franchisee .num_wrap>div{float:left; width:50%; height:500px; }
 
 #franchisee .num_wrap .contry{position: relative; background-image: url(../img/가맹점_01.jpg);}
-#franchisee .num_wrap .contry .msg{position: absolute; top:32%; left:50%;}
+#franchisee .num_wrap .contry #msg{position: absolute; top:32%; left:50%;}
 #franchisee .num_wrap .contry .name{font-size:40px;text-align: center;  color: #fff; margin-bottom:20px; padding-bottom: 20px; border-bottom: 2px solid #fff; } 
 #franchisee .num_wrap .contry .counter{font-size:97px; font-weight: bold; color: #fff;}
 #franchisee .num_wrap .contry .unit{font-size:40px;  color: #fff;}
@@ -294,7 +294,7 @@ button{outline: none;}
 #franchisee .num_wrap .contry.on .unit{color: #000;}
 
 #franchisee .num_wrap .store{position: relative;}
-#franchisee .num_wrap .store .msg{position: absolute; top:32%; left:20%;}
+#franchisee .num_wrap .store #msg{position: absolute; top:32%; left:20%;}
 #franchisee .num_wrap .store .name{font-size:40px; text-align: center; border-bottom: 2px solid #000; margin-bottom:20px; padding-bottom: 20px;}
 #franchisee .num_wrap .store .counter{font-size:97px; font-weight: bold;}
 #franchisee .num_wrap .store .unit{font-size:40px;}
