@@ -155,7 +155,7 @@ $(function () {
     $(window).on('resize', function () {
         win_w = $(this).width();
 
-        if (win_w >= 980) {
+        if (win_w >= 1200) {
             mouse_wheel_scroll();
         } else {
             $(window).off('mousewheel DOMMouseScroll')
@@ -181,9 +181,9 @@ $(function () {
             nextEl: '#visual .swiper-button-next',
             prevEl: '#visual .swiper-button-prev',
         },
-        autoplay: {
-            delay: 4000,
-        },
+        // autoplay: {
+        //     delay: 4000,
+        // },
 
     });
 
@@ -193,9 +193,9 @@ $(function () {
             nextEl: '#visual .swiper-button-next',
             prevEl: '#visual .swiper-button-prev',
         },
-        autoplay: {
-            delay: 4000,
-        },
+        // autoplay: {
+        //     delay: 4000,
+        // },
 
     });
 
@@ -209,9 +209,9 @@ $(function () {
             nextEl: '#visual .swiper-button-next',
             prevEl: '#visual .swiper-button-prev',
         },
-        autoplay: {
-            delay: 4000,
-        },
+        // autoplay: {
+        //     delay: 4000,
+        // },
 
     });
 
@@ -236,16 +236,19 @@ $(function () {
         }
     });
 
-    $('#header .toggle').on('click',function(){
-        $('#gnb').addClass('on');
-        $('.toggle').addClass('on');
-        $('.cancle').addClass('on');  
+    $('#header .bar').on('click',function(){
+        $(this).addClass('on');
+        $('.gnb_wrap').addClass('on');
+        $('.cancle').addClass('on');
+        $('.m_logo').addClass('on');   
     });
 
     $('#header .cancle').on('click',function(){
-        $('#gnb').removeClass('on');
-        $('.toggle').removeClass('on');
-        $('.cancle').removeClass('on');
+        $(this).removeClass('on');
+        $('.gnb_wrap').removeClass('on');
+        $('.bar').removeClass('on');
+        $('.m_logo').removeClass('on'); 
+        
     });
 
 /*-------menu--------------------------------------*/
@@ -296,7 +299,7 @@ $(function () {
         $(this).siblings().removeClass('on');
     });
 
-    
+ 
 
 
 
