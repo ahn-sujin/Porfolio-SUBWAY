@@ -181,9 +181,9 @@ $(function () {
             nextEl: '#visual .swiper-button-next',
             prevEl: '#visual .swiper-button-prev',
         },
-        // autoplay: {
-        //     delay: 4000,
-        // },
+        autoplay: {
+            delay: 4000,
+        },
 
     });
 
@@ -193,9 +193,9 @@ $(function () {
             nextEl: '#visual .swiper-button-next',
             prevEl: '#visual .swiper-button-prev',
         },
-        // autoplay: {
-        //     delay: 4000,
-        // },
+        autoplay: {
+            delay: 4000,
+        },
 
     });
 
@@ -209,9 +209,9 @@ $(function () {
             nextEl: '#visual .swiper-button-next',
             prevEl: '#visual .swiper-button-prev',
         },
-        // autoplay: {
-        //     delay: 4000,
-        // },
+        autoplay: {
+            delay: 4000,
+        },
 
     });
 

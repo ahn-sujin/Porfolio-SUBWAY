@@ -36,6 +36,8 @@ button{outline: none; border: none;}
 #gnb .submenu>li:hover{background: #ffce33;}
 #gnb .submenu>li:hover>a{color: #fff;}
 
+#icon{display: none;}
+
 .pagenation{position: fixed; left: 50px; top: 50%; width: 80px; transform: translateY(-50%); z-index: 1; }
 .pagenation > a{ 
     display: block; width: 13px; height: 13px; margin: 15px 0px; line-height: 8px;
@@ -88,6 +90,11 @@ button{outline: none; border: none;}
     #gnb .submenu>li:hover{background: none;}
     #gnb .submenu>li:hover>a{color: #ffce33;}
 
+    #icon{display: block; padding: 0 40px;}
+    #icon>li{float:left; margin-top:30px; width:70px; height:70px; margin-right:40px;  border-radius: 100%; background: #03863e;}
+    #icon>li:last-of-type{margin-right:0;}
+    #icon>li>a{display: block; text-align: center; line-height: 70px; font-size:20px; color: #fff;}
+    #icon>li>p{font-size:12px; color: #fff; text-align: center; margin-top:10px;}
     .pagenation{display: none;}
 
 }
@@ -106,13 +113,14 @@ button{outline: none; border: none;}
 }
 
 @media screen and (max-width:480px){
-    #header{height:60px;}
-    #header .logo{width:110px;  }
+    #header{height:50px;}
+    #header .inner{padding:0 10px;}
+    #header .logo{width:100px; margin-top:10px;}
     #header .m_logo.on{width:140px; top:10px;}
-    #header .toggle{width:35px; height:35px; top:10px;}
+    #header .toggle{width:35px; height:35px; top:5px;}
     #header .toggle>i{line-height:35px; font-size:16px;}
 
-    #gnb>li>a{font-size:18px; line-height: 60px;}
+    #gnb>li>a{font-size:16px; line-height: 60px;}
 }
 
 
@@ -127,6 +135,8 @@ button{outline: none; border: none;}
 #visual .left .swiper-slide:nth-of-type(1){background-image: url(../img/visual_left_01.jpg);}
 #visual .left .swiper-slide:nth-of-type(2){background-image: url(../img/visual_left_02.jpg);}
 #visual .left .swiper-slide:nth-of-type(3){background-image: url(../img/visual_left_03.jpg);}
+
+#visual .left .swiper-slide .msg{display: none;}
 /*--right------*/
 #visual .right{right:0; background: #029846;}
 #visual .right .swiper-slide{opacity:0;}
@@ -172,7 +182,7 @@ button{outline: none; border: none;}
 #visual .right .swiper-slide.box_03 .msg .title_02{font-size:70px; color: #fff;}
 /*--center------*/
 #visual .center{
-    top:50%; left:50%; margin: -11% 0 0 -18%; width:600px;
+    top:28%; left:33%; width:600px;
     animation: center_slide_rotate 18s infinite linear; transition: 0.5s;
 }
 #visual .center .swiper-slide img{width:100%; opacity:0; transition:0.4s;}
@@ -210,29 +220,34 @@ button{outline: none; border: none;}
 @media screen and (max-width:1200px){
     #visual{height:800px;}
 
-    #visual .center{margin: -15% 0 0 -28%; width:350px;}
+    #visual .center{top:65%; left:39%; width:250px;}
 
-    #visual .right .swiper-slide.box_01 .msg{left:47%;}
+    #visual .right .swiper-slide.box_01 .msg{left:43%; bottom:3%;}
     #visual .right .swiper-slide.box_01 .msg .txt{font-size:17px; margin-left:5px;}
     #visual .right .swiper-slide.box_01 .msg .title_01{font-size:34px; margin:30px 0 20px;}
     #visual .right .swiper-slide.box_01 .msg .title_02{font-size:69px; letter-spacing: 7px;}
     #visual .right .swiper-slide.box_01 .msg .title_03{font-size:49px; }
 
-    #visual .right .swiper-slide.box_02 .msg{left:45%;}
+    #visual .right .swiper-slide.box_02 .msg{left:38%; bottom:8%;}
     #visual .right .swiper-slide.box_02 .msg .txt{font-size:17px;}
     #visual .right .swiper-slide.box_02 .msg .txt_01{font-size:15px; }
     #visual .right .swiper-slide.box_02 .msg .title_01{font-size:59px; margin:20px 0 10px; }
     #visual .right .swiper-slide.box_02 .msg .title_02{font-size:59px; }
     #visual .right .swiper-slide.box_02 .msg .title_03{font-size:59px; }
 
-    #visual .right .swiper-slide.box_03 .msg{left:45%;}
+    #visual .right .swiper-slide.box_03 .msg{left:42%; bottom:7%;}
     #visual .right .swiper-slide.box_03 .msg .txt{font-size:17px;}
     #visual .right .swiper-slide.box_03 .msg .title_01{font-size:69px;}
     #visual .right .swiper-slide.box_03 .msg .title_02{font-size:35px; }
 
+    #visual .right .swiper-slide .msg .more{width:150px; height:45px; margin-top:40px;}
+    #visual .right .swiper-slide .msg .more>a{font-size:14px; line-height: 45px; }
+
     #visual .icon-btn .circle{width:45px; height:45px; margin:0 auto;}
     #visual .icon-btn .circle>a{font-size:20px; line-height: 45px;}
     #visual .icon-btn .name{ font-size:14px;}
+
+    #visual .swiper-pagination-fraction{bottom: 0px; width: 60px; height: 60px; font-size: 24px; line-height: 54px;}
 
 }
 
@@ -240,33 +255,27 @@ button{outline: none; border: none;}
     #visual{height:700px;}
     #visual .icon-btn{display: none;}
 
-    #visual .center{margin: -15% 0 0 -24%; width:250px;}
+    #visual .center{top:65%; left:37%; width:200px;}
 
-    #visual .right .swiper-slide.box_01 .msg{left:54%;}
+    #visual .right .swiper-slide.box_01 .msg{left:50%; bottom:3%;}
     #visual .right .swiper-slide.box_01 .msg .txt{font-size:17px;}
     #visual .right .swiper-slide.box_01 .msg .title_01{font-size:28px; margin:20px 0 10px;}
     #visual .right .swiper-slide.box_01 .msg .title_02{font-size:54px;}
     #visual .right .swiper-slide.box_01 .msg .title_03{font-size:40px; }
 
-    #visual .right .swiper-slide.box_02 .msg{left:45%;}
+    #visual .right .swiper-slide.box_02 .msg{left:45%; bottom:8%;}
     #visual .right .swiper-slide.box_02 .msg .txt{font-size:17px;}
     #visual .right .swiper-slide.box_02 .msg .txt_01{font-size:15px; }
-    #visual .right .swiper-slide.box_02 .msg .title_01{font-size:59px; margin:20px 0 10px; }
-    #visual .right .swiper-slide.box_02 .msg .title_02{font-size:59px; }
-    #visual .right .swiper-slide.box_02 .msg .title_03{font-size:59px; }
+    #visual .right .swiper-slide.box_02 .msg .title_01{font-size:53px; margin:20px 0 10px; }
+    #visual .right .swiper-slide.box_02 .msg .title_02{font-size:51px; }
+    #visual .right .swiper-slide.box_02 .msg .title_03{font-size:51px; }
 
-    #visual .right .swiper-slide.box_03 .msg{left:45%;}
+    #visual .right .swiper-slide.box_03 .msg{left:46%; bottom:7%;}
     #visual .right .swiper-slide.box_03 .msg .txt{font-size:17px;}
-    #visual .right .swiper-slide.box_03 .msg .title_01{font-size:69px;}
-    #visual .right .swiper-slide.box_03 .msg .title_02{font-size:35px; }
+    #visual .right .swiper-slide.box_03 .msg .title_01{font-size:53px;}
+    #visual .right .swiper-slide.box_03 .msg .title_02{font-size:30px; }
 
-    #visual .icon-btn .circle{width:45px; height:45px; margin:0 auto;}
-    #visual .icon-btn .circle>a{font-size:20px; line-height: 45px;}
-    #visual .icon-btn .name{ font-size:14px;}
-
-    #visual .right .swiper-slide .msg .more{width:150px; height:40px; margin-top:40px;}
-    #visual .right .swiper-slide .msg .more>a{font-size:14px; line-height: 40px; }
-
+    
     #visual .swiper-btn{bottom: 38px;}
     #visual .swiper-btn .swiper-button-next::after,
     #visual .swiper-btn .swiper-button-prev::after{width:90%; height: 169%;}
@@ -274,40 +283,69 @@ button{outline: none; border: none;}
     #visual .swiper-btn .swiper-button-prev::after{left: 60%; font-size:14px;}
     #visual .swiper-btn .swiper-button-next::after{font-size:14px;}
 
-    #visual .swiper-pagination-fraction{bottom: 0px; width: 60px; height: 60px; font-size: 24px; line-height: 54px;}
-
+    
 }
 
 @media screen and (max-width:768px){
     #visual{padding-top:70px;}
     #visual .swiper-container{top:70px;}
-    #visual .left{width:100%;}
+    #visual .left{width:100%; }
+    #visual .left .swiper-slide .msg{position: absolute; top:35%; left:50%; transform: translate(-50%, -50%); display: block; text-align: center;}
+
+    #visual .left .swiper-slide.copy_01 .msg .txt{font-size:15px; color: #fff;}
+    #visual .left .swiper-slide.copy_01 .msg .title_01{font-size:28px; margin:10px 0 10px; color: #fff; font-weight: bold;}
+    #visual .left .swiper-slide.copy_01 .msg .title_02{font-size:54px; color: #ffce33; font-weight: bold;}
+    #visual .left .swiper-slide.copy_01 .msg .title_03{font-size:40px; color: #ffce33; font-weight: bold; }
+
+    #visual .left .swiper-slide.copy_02 .msg .txt{font-size:15px; color: #ffce33;}
+    #visual .left .swiper-slide.copy_02 .msg .txt_01{font-size:15px; color: #fff; }
+    #visual .left .swiper-slide.copy_02 .msg .title_01{font-size:65px; margin:10px 0 10px;  color: #ffce33; font-weight: bold; }
+    #visual .left .swiper-slide.copy_02 .msg .title_02{font-size:51px;  color: #ffce33; }
+    #visual .left .swiper-slide.copy_02 .msg .title_03{font-size:51px;  color: #fff;}
+
+    #visual .left .swiper-slide.copy_03 .msg .txt{font-size:15px; font-weight: 500;  color: #000;}
+    #visual .left .swiper-slide.copy_03 .msg .title_01{font-size:65px;  color: #03863e; font-weight: bold; margin:10px 0 10px; }
+    #visual .left .swiper-slide.copy_03 .msg .title_02{font-size:40px; font-weight: bold;   color: #000;}
+    #visual .left .swiper-slide.copy_03 .msg .more{ border: 1px solid #000;}
+    #visual .left .swiper-slide.copy_03 .msg .more>a{color: #000;}
+
+    #visual .left .swiper-slide .msg .more{width:150px; height:40px; border: 1px solid #fff; border-radius: 30px; margin:30px auto 0;}
+    #visual .left .swiper-slide .msg .more>a{display: block; font-size:14px; color: #fff; text-align: center; line-height: 40px; }
+
+
     #visual .right{display: none;}
 
-    #visual .center{margin: 62% 0 0 15%;}
-
-    #visual .swiper-btn{left:15%;}
+    #visual .center{top:68%; left:35%;}
 
     #visual .swiper-pagination-fraction{width: 50px; height: 50px; font-size: 20px; line-height: 44px;}
 
 }
 
-@media screen and (max-width:640px){
-    
-    #visual .center{margin: 76% 0 0 11%; width:230px;}
-    
-}
-
 @media screen and (max-width:480px){
-    #visual{height:800px;}
-    #visual{padding-top:60px;}
-    #visual .swiper-container{top:60px;}
+    #visual{height:600px; padding-top:50px;}
+    #visual .swiper-container{top:50px;}
 
     #visual .left .swiper-slide:nth-of-type(1){background-position: 3% 0 ;}
+    #visual .left .swiper-slide.copy_01 .msg .txt{font-size:12px;}
+    #visual .left .swiper-slide.copy_01 .msg .title_01{font-size:20px;}
+    #visual .left .swiper-slide.copy_01 .msg .title_02{font-size:40px;}
+    #visual .left .swiper-slide.copy_01 .msg .title_03{font-size:32px;}
 
-    #visual .center{margin: 119% 0 0 -30%;}
+    #visual .left .swiper-slide.copy_02 .msg .txt{font-size:12px;}
+    #visual .left .swiper-slide.copy_02 .msg .txt_01{font-size:12px;}
+    #visual .left .swiper-slide.copy_02 .msg .title_01{font-size:40px;}
+    #visual .left .swiper-slide.copy_02 .msg .title_02{font-size:32px;}
+    #visual .left .swiper-slide.copy_02 .msg .title_03{font-size:32px;}
 
-    #visual .swiper-btn{left:50%;}
+    #visual .left .swiper-slide.copy_03 .msg .txt{font-size:12px;}
+    #visual .left .swiper-slide.copy_03 .msg .title_01{font-size:40px; }
+    #visual .left .swiper-slide.copy_03 .msg .title_02{font-size:24px;}
+
+    #visual .left .swiper-slide .msg .more{width:120px; height:35px; border-radius: 20px; margin:20px auto 0;}
+    #visual .left .swiper-slide .msg .more>a{font-size:12px;line-height: 34px; }
+
+
+    #visual .center{top:68%; left:26%; width:180px;}
 
     #visual .swiper-pagination-fraction{width: 40px; height: 40px; font-size: 14px; line-height: 34px;}
 
