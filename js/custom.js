@@ -75,12 +75,13 @@ $(function () {
     //스크롤 모션 
     $(window).on('scroll', function () {
         var scroll = $(this).scrollTop();
+        
 
         getVisibilityStatus();
 
         $('section').each(function (num) {
             if (scroll >= sec_pos[num] + base_line && scroll < sec_pos[num + 1]) {
-                $('section').removeClass('on').eq(num).addClass('on');
+                $('section').eq(num).addClass('on');
                 $('.pagenation').children('a').removeClass('on').eq(num).addClass('on');
 
                 if (scroll >= sec_pos[1] + base_line && scroll < sec_pos[2]) {
@@ -275,8 +276,9 @@ $(function () {
 /*-------news--------------------------------------*/
     var mySwiper = new Swiper('#news .swiper-container', {
         loop: true,
-        slidesPerView: 4,
-        spaceBetween: 30,
+        slidesPerView: 1,
+        spaceBetween: 0,
+        slidesPerGroup: 1,
 
         navigation: {
             nextEl: '#news .swiper-button-next',
@@ -286,6 +288,39 @@ $(function () {
         autoplay: {
             delay: 2000,
         },
+
+        breakpoints: {
+
+            480: {
+                slidesPerView: 1,
+                spaceBetween: 0,
+                slidesPerGroup: 1,
+            },
+
+            640: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+            slidesPerGroup: 1,
+            },
+
+            768: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+            slidesPerGroup: 1,
+            },
+
+            980: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            slidesPerGroup: 1,
+            },
+
+            1200: {
+            slidesPerView: 4,
+            spaceBetween: 30,
+            slidesPerGroup: 1,
+            },
+        }
     });
 
 
