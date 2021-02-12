@@ -1,6 +1,6 @@
 # Porfolio-SUBWAY
 
-Renewed Web page of SUBWAY
+Renewed Web page of SUBWAY (by ahn-sujin) 
 
 [VIEW WEBSITE](https://ahn-sujin.github.io/Porfolio-SUBWAY)
 
