@@ -13,4 +13,4 @@ Renewed Web page of SUBWAY (by ahn-sujin)
 * Index : 메인 페이지
 
 ## Contact 
-* asj9674@gmail.com
+:envelope: asj9674@gmail.com
