@@ -75,6 +75,8 @@ $(function () {
     //스크롤 모션 
     $(window).on('scroll', function () {
         var scroll = $(this).scrollTop();
+        var page = $('.page_start');
+        var pageOffsetTop = page.offset().top;
         
 
         getVisibilityStatus();
@@ -83,18 +85,14 @@ $(function () {
             if (scroll >= sec_pos[num] + base_line && scroll < sec_pos[num + 1]) {
                 $('section').eq(num).addClass('on');
                 $('.pagenation').children('a').removeClass('on').eq(num).addClass('on');
-
-                if (scroll >= sec_pos[1] + base_line && scroll < sec_pos[2]) {
-                    $('#header').addClass('on');
-                } else if (scroll >= sec_pos[3] + base_line && scroll < sec_pos[5]) {
-                    $('#header').addClass('on');
-                } else {
-                    $('#header').removeClass('on');
-                }
             }
-
-
         });
+
+        if($(window).scrollTop() > pageOffsetTop){
+            $('#header').addClass('on');
+        } else{
+            $('#header').removeClass('on');
+        }
     
     });
 
