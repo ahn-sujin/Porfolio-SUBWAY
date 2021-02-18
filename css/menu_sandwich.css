@@ -1,0 +1,240 @@
+table{border-collapse: collapse; border-spacing: 0; width:100%;}
+
+/*---------header------------------------------------------------------*/
+#header{width:100%; height:80px;  z-index: 2; }
+#header a{color: #444;}
+
+@media screen and (max-width:768px){
+    #header{height:60px;}
+}
+
+@media screen and (max-width:480px){
+    #header{height:50px;}
+}
+
+/*---------menu_bar------------------------------------------------------*/
+#menu_bar{width: 100%; height:50px; border-bottom: 1px solid #e5e5e5; border-top: 1px solid #e5e5e5;}
+#menu_bar .inner{text-align: center;}
+#menu_bar .inner::after{content:''; display: block; clear: both;}
+#menu_bar ul{display: inline-block;}
+#menu_bar ul>li{float:left; padding:0 20px; }
+#menu_bar ul>li:last-of-type{margin-right:0;}
+#menu_bar ul>li>a{display: block; text-align: center; line-height: 48px;  font-size:14px; color: #999;}
+#menu_bar ul>li:nth-of-type(1)>a{color: #ffce33;}
+#menu_bar ul>li:nth-of-type(1)>a::after{content:''; display: block; width:89px; height:4px; background: #ffce33; margin-top: -3px;}
+#menu_bar ul>li:hover>a{color:#ffce33;}
+
+@media screen and (max-width:640px){
+    #menu_bar ul>li{padding:0 15px;}
+    #menu_bar ul>li>a{font-size:12px;}
+    #menu_bar ul>li:nth-of-type(1)>a::after{width:50px;}
+}
+
+@media screen and (max-width:480px){
+    #menu_bar{height:40px;}
+    #menu_bar ul>li{padding:0 10px;}
+    #menu_bar ul>li>a{font-size:10px; line-height: 40px;}
+}
+
+/*---------main_menu------------------------------------------------------*/
+#main_menu{position: relative; width:100%; padding:100px 0;}
+#main_menu .inner{width:1180px; margin:0 auto;}
+#main_menu .inner::after{content:''; display: block; clear: both;}
+
+#main_menu .msg h3{text-align: center; font-size:20px; font-weight: 400; color: #029846;}
+#main_menu .msg h3::after{content:'\f0fe'; font-family:'Font Awesome 5 Free'; font-weight: 900; margin-left:5px;}
+#main_menu .msg .name{text-align: center; font-size:50px; margin: 20px 0; }
+#main_menu .msg .menu_info{text-align: center;}
+#main_menu .msg .eng{font-size:16px; color: #999;}
+#main_menu .msg .eng::after{content:''; display: inline-block; width:1px; height:15px; background: #999; margin: 0 20px;}
+
+#main_menu .sub{position: absolute;}
+#main_menu .sub.left{top:29%; left:-8%;}
+#main_menu .sub.left::after{
+    content:'\f053'; font-family: 'Font Awesome 5 Free'; font-weight: 900; font-size: 60px; color: #eee; display: inline-block;
+    position: absolute; top:32%; right:-50%; cursor: pointer;
+}
+#main_menu .sub.left:hover::after{color: #ffce33;}
+#main_menu .sub.left:hover img{opacity: 1;}
+
+#main_menu .sub.right{top:29%; right:-8%;}
+#main_menu .sub.right::before{
+    content:'\f054'; font-family: 'Font Awesome 5 Free'; font-weight: 900; font-size: 60px; color: #eee; display: inline-block;
+    position: absolute; top:32%; left:-50%; cursor: pointer;
+}
+#main_menu .sub.right:hover::before{color:#ffce33;}
+#main_menu .sub.right:hover img{opacity: 1;}
+
+#main_menu .sub{width:400px;}
+#main_menu .sub img{width:100%; opacity: 0.4;}
+
+#main_menu .main{ text-align: center;}
+#main_menu .main::before{content:'이탈리안 비엠티'; display: inline-block; font-size: 15px; position: absolute; top:40%; left:25%;}
+#main_menu .main::after{content:'비엘티'; display: inline-block; font-size: 15px; position: absolute; top:40%; right:25%;}
+
+#main_menu .txt{text-align: center; font-size:16px; color: #999;}
+
+#main_menu .recipe{text-align: center; margin:50px 0 40px;}
+#main_menu .sauce{display: inline-block;}
+#main_menu .sauce::after{content:''; display: block; clear: both;}
+#main_menu .sauce>li{position: relative; float:left; width:100px;  margin:0 10px;}
+#main_menu .sauce>li:last-of-type{margin-right: 0;}
+#main_menu .sauce>li img{text-align: center; width:100%;}
+#main_menu .sauce>li h3{text-align: center; font-size:13px;}
+#main_menu .sauce>li .best{position: absolute; top:0; right:0; width: 35px; height:35px; border-radius: 100%; background: #009223;}
+#main_menu .sauce>li .best>p{font-size:12px; line-height: 35px; text-align: center; color: #fff;}
+
+#main_menu .about_wrap{text-align: center;}
+#main_menu .about{margin-bottom: 10px; font-size: 12px; color: #999;}
+#main_menu .about:nth-of-type(2){margin-bottom: 20px;}
+
+@media screen and (max-width:1200px){
+    #main_menu .inner{width:100%;}
+
+    #main_menu .msg h3{font-size:18px;}
+    #main_menu .msg .name{text-align: center; font-size:45px; margin: 20px 0; }
+    #main_menu .msg .eng{font-size:14px; color: #999;}
+
+    #main_menu .sub{width:300px;}
+    #main_menu .sub.left{top:29%; left:-12%;}
+    #main_menu .sub.left::after{font-size:50px; right:-30%;}
+    #main_menu .sub.right{top:29%; right:-12%;}
+    #main_menu .sub.right::before{font-size:50px; left:-30%;}
+
+    #main_menu .main{width:400px; position: relative; top:50%; left:50%; transform: translate(-50%, -5%);}
+    #main_menu .main img{width:100%;}
+
+    #main_menu .main::before,
+    #main_menu .main::after{display: none;}
+
+    #main_menu .txt{font-size:14px;}
+
+
+}
+
+@media screen and (max-width:980px){
+    #main_menu{padding:80px 40px;}
+}
+
+@media screen and (max-width:768px){
+    #main_menu{padding:60px 40px;}
+}
+
+@media screen and (max-width:640px){
+    #main_menu{padding:60px 20px;}
+}
+
+@media screen and (max-width:480px){
+
+}
+
+/*---------nutrient------------------------------------------------------*/
+#nutrient{width:100%; padding:100px 0; background: #f6f6f6;}
+#nutrient .inner{width:1180px; margin: 0 auto;}
+#nutrient .inner::after{content:''; display: block; clear: both;}
+
+#nutrient .title{text-align: center; font-size:28px; font-weight: bold; margin-bottom:40px;}
+#nutrient .list_wrap table{clear: both; border-top:4px solid #009223;}
+#nutrient .list_wrap table th{text-align: center; color: #009223; font-size:16px; font-weight:500; height: 69px; line-height: 69px; border-bottom: 1px solid #009223;}
+#nutrient .list_wrap table td{text-align: center; font-size:16px; height:69px; line-height: 69px; border-bottom: 1px solid #ddd;}
+
+#nutrient .notice{margin-top:40px;}
+#nutrient .notice>p{font-size:13px; line-height: 20px; color: #999;}
+
+#nutrient .btn_wrap{float:right; margin-top:-40px;}
+#nutrient .btn_wrap::after{content:''; display: block; clear: both;}
+#nutrient .btn_wrap .btn{float:left; width:100px; height:40px; border-radius: 30px; background: #444; margin-right:20px;}
+#nutrient .btn_wrap .btn>a{display: block; text-align: center; font-size:13px; color: #fff;  line-height: 40px;}
+#nutrient .btn_wrap .btn:last-of-type{margin-right:0;}
+
+@media screen and (max-width:1200px){
+    #nutrient .inner{width:100%;}
+}
+
+@media screen and (max-width:980px){
+    #nutrient{padding:80px 40px;}
+}
+
+@media screen and (max-width:768px){
+    #nutrient{padding:60px 40px;}
+}
+
+@media screen and (max-width:640px){
+    #nutrient{padding:60px 20px;}
+}
+
+@media screen and (max-width:480px){
+
+}
+
+
+
+/*---------fresh------------------------------------------------------*/
+#fresh{width:100%; padding:100px 0;}
+#fresh .inner{width:1180px; margin: 0 auto;}
+#fresh .inner::after{content:''; display: block; clear: both;}
+
+#fresh .title_wrap{text-align: center;}
+#fresh .title_wrap>h3{font-size:18px; margin-bottom:20px;}
+#fresh .title_wrap>span{font-size:50px; font-weight: 900; margin-right: 7px;}
+#fresh .title_wrap>span:last-of-type{margin-right:0;}
+#fresh .title_wrap .yellow{color: #ffce33;}
+#fresh .title_wrap .green{color: #009223;}
+
+#fresh .box_wrap{margin-top:60px;}
+#fresh .box{position: relative; float:left; width:31.333%; margin-right:3%;}
+#fresh .box:last-of-type{margin-right:0;}
+#fresh .box img{width:100%;}
+#fresh .box .text{
+    position: absolute; bottom: 0; right:0;
+    width:80px; height:80px; background: #009223; transition: 0.3s; 
+}
+#fresh .box .text>h2{text-align: center; font-size:50px; color: #ffce33; font-weight: 900; line-height: 80px; }
+
+
+#fresh .box .text_wrap{opacity: 0; }
+
+#fresh .box:hover .text{width:100%; height:100%; padding:30px; opacity: 0.9;}
+#fresh .box:hover .text_wrap{opacity: 1; transition: 0.5s;}
+#fresh .box:hover .text_wrap>.key{text-align: center; font-size: 28px; color: #fff; font-weight: bold; line-height: 35px; margin-bottom: 20px;}
+#fresh .box:hover .text_wrap>.info{text-align: center; font-size:14px; color: #fff; line-height: 24px;}
+
+@media screen and (max-width:1200px){
+    #fresh .inner{width:100%;}
+}
+
+@media screen and (max-width:980px){
+    #fresh{padding:80px 40px;}
+}
+
+@media screen and (max-width:768px){
+    #fresh{padding:60px 40px;}
+}
+
+@media screen and (max-width:640px){
+    #fresh{padding:60px 20px;}
+}
+
+@media screen and (max-width:480px){
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
