@@ -2,7 +2,7 @@
 
 Renewed Web page of SUBWAY (by ahn-sujin) 
 
-[VIEW WEBSITE](https://ahn-sujin.github.io/Porfolio-SUBWAY)
+[VIEW WEBSITE](https://ahn-sujin.github.io/Porfolio-SUBWAY/home.html)
 
 ## About
 * 기존의 써브웨이를 리뉴얼한 사이트 입니다. 
