@@ -92,8 +92,8 @@ table{border-collapse: collapse; border-spacing: 0; width:100%;}
     #main_menu .inner{width:100%;}
 
     #main_menu .msg h3{font-size:18px;}
-    #main_menu .msg .name{text-align: center; font-size:45px; margin: 20px 0; }
-    #main_menu .msg .eng{font-size:14px; color: #999;}
+    #main_menu .msg .name{font-size:45px;}
+    #main_menu .msg .eng{font-size:14px;}
 
     #main_menu .sub{width:300px;}
     #main_menu .sub.left{top:29%; left:-12%;}
@@ -108,24 +108,60 @@ table{border-collapse: collapse; border-spacing: 0; width:100%;}
     #main_menu .main::after{display: none;}
 
     #main_menu .txt{font-size:14px;}
-
-
 }
 
 @media screen and (max-width:980px){
     #main_menu{padding:80px 40px;}
+
+    #main_menu .msg h3{font-size:16px;}
+    #main_menu .msg .name{font-size:40px;}
+
+    #main_menu .sub{width:250px;}
+    #main_menu .sub.left::after{font-size:40px; right:-15%;}
+    #main_menu .sub.right::before{font-size:40px; left:-15%;}
+
+    #main_menu .main{width:350px;}
 }
 
 @media screen and (max-width:768px){
     #main_menu{padding:60px 40px;}
+
+    #main_menu .sub{width:200px;}
+    #main_menu .main{width:300px;}
+
+    #main_menu .recipe{ margin:40px 0 30px;}
+    #main_menu .sauce>li{width:90px; padding:0 5px; margin:0px;}
+    #main_menu .sauce>li h3{font-size:12px;}
+    #main_menu .sauce>li .best{width: 25px; height:25px;}
+    #main_menu .sauce>li .best>p{font-size:10px; line-height: 25px;}
 }
 
 @media screen and (max-width:640px){
     #main_menu{padding:60px 20px;}
+
+    #main_menu .msg .name{font-size:30px;}
+
+    #main_menu .txt{line-height: 24px;}
+    #main_menu .sub.left,
+    #main_menu .sub.right{display: none;}
 }
 
 @media screen and (max-width:480px){
+    #main_menu .msg h3{font-size:14px;}
+    #main_menu .msg .name{font-size:24px; margin: 15px 0;}
+    #main_menu .msg .eng{font-size:12px;}
+    #main_menu .msg .eng::after{margin: 0 10px;}
 
+    #main_menu .main{width:250px;}
+
+    #main_menu .recipe{padding:0 40px; margin:30px 0;}
+    #main_menu .sauce>li{width:48.5%; margin-right:3%; padding:0 0px;}
+    #main_menu .sauce>li:nth-of-type(2n){margin-right: 0;}
+    #main_menu .sauce>li h3{font-size:10px;}
+    #main_menu .sauce>li .best{width: 25px; height:25px;}
+    #main_menu .sauce>li .best>p{font-size:10px; line-height: 25px;}
+
+    #main_menu .about{font-size: 10px;}
 }
 
 /*---------nutrient------------------------------------------------------*/
@@ -147,24 +183,49 @@ table{border-collapse: collapse; border-spacing: 0; width:100%;}
 #nutrient .btn_wrap .btn>a{display: block; text-align: center; font-size:13px; color: #fff;  line-height: 40px;}
 #nutrient .btn_wrap .btn:last-of-type{margin-right:0;}
 
+#nutrient .mobile{display: none;}
+
 @media screen and (max-width:1200px){
+    #nutrient{padding:100px 40px;}
     #nutrient .inner{width:100%;}
 }
 
 @media screen and (max-width:980px){
     #nutrient{padding:80px 40px;}
+    #nutrient .btn_wrap{margin-top:30px;}
 }
 
 @media screen and (max-width:768px){
     #nutrient{padding:60px 40px;}
+
+    #nutrient .title{font-size:24px; margin-bottom: 30px;}
+    #nutrient .list_wrap table th{font-size:14px; height: 59px; line-height: 59px;}
+    #nutrient .list_wrap table td{font-size:14px; height:59px; line-height: 59px;}
+
+    #nutrient .notice{margin-top:20px;}
+    #nutrient .notice>p{font-size:12px;}
+
+    #nutrient .btn_wrap .btn{width:90px; height: 35px; margin-top:20px;}
+    #nutrient .btn_wrap .btn>a{font-size:12px; line-height: 35px;}
 }
 
 @media screen and (max-width:640px){
     #nutrient{padding:60px 20px;}
+
+    #nutrient .list_wrap table th{font-size:12px;}
+    #nutrient .list_wrap table td{font-size:12px;}
+
+    #nutrient .btn_wrap .btn{width:80px; height: 30px; margin-top:20px;}
+    #nutrient .btn_wrap .btn>a{font-size:10px; line-height: 30px;}
 }
 
 @media screen and (max-width:480px){
+    #nutrient .pc{display: none;}
 
+    #nutrient .mobile{display: block;}
+    #nutrient .list_wrap table td{width:30%;}
+    #nutrient .list_wrap table td label{color: #009223; font-weight: bold;}
+    #nutrient .list_wrap table td.tg{width:200px;}
 }
 
 
@@ -186,7 +247,7 @@ table{border-collapse: collapse; border-spacing: 0; width:100%;}
 #fresh .box:last-of-type{margin-right:0;}
 #fresh .box img{width:100%;}
 #fresh .box .text{
-    position: absolute; bottom: 0; right:0;
+    position: absolute; bottom: 0; right:0; overflow: hidden;
     width:80px; height:80px; background: #009223; transition: 0.3s; 
 }
 #fresh .box .text>h2{text-align: center; font-size:50px; color: #ffce33; font-weight: 900; line-height: 80px; }
@@ -197,25 +258,55 @@ table{border-collapse: collapse; border-spacing: 0; width:100%;}
 #fresh .box:hover .text{width:100%; height:100%; padding:30px; opacity: 0.9;}
 #fresh .box:hover .text_wrap{opacity: 1; transition: 0.5s;}
 #fresh .box:hover .text_wrap>.key{text-align: center; font-size: 28px; color: #fff; font-weight: bold; line-height: 35px; margin-bottom: 20px;}
-#fresh .box:hover .text_wrap>.info{text-align: center; font-size:14px; color: #fff; line-height: 24px;}
+#fresh .box:hover .text_wrap>.info{text-align: center; font-size: 14px; color: #fff; line-height: 24px;}
 
 @media screen and (max-width:1200px){
+    #fresh{padding:100px 40px;}
     #fresh .inner{width:100%;}
+
+    #fresh .box:hover .text{padding:0 20px;}
+    #fresh .box:hover .text_wrap>.key{font-size: 24px; margin-bottom: 20px;}
 }
 
 @media screen and (max-width:980px){
     #fresh{padding:80px 40px;}
+
+    #fresh .title_wrap>h3{font-size:16px; margin-bottom: 15px;}
+    #fresh .title_wrap>span{font-size:45px;}
+
+    #fresh .box{width:48.5%; margin-bottom:20px;}
+    #fresh .box:nth-of-type(2){margin-right: 0;}
+
+    #fresh .box_wrap{margin-top:40px;}
+    #fresh .box .text{width:60px; height:60px;}
+    #fresh .box .text>h2{font-size:40px; line-height: 60px;}
+
+    #fresh .box:hover .text{padding:30px;}
+    #fresh .box:hover .text_wrap>.key{font-size: 18px; line-height: 28px; margin-bottom: 10px;}
+
 }
 
 @media screen and (max-width:768px){
     #fresh{padding:60px 40px;}
+
+    #fresh .title_wrap>span{font-size:40px;}
+    #fresh .box .text>h2{font-size:30px; line-height: 60px;}
+    #fresh .box:hover .text{padding:10px 30px;}
 }
 
 @media screen and (max-width:640px){
     #fresh{padding:60px 20px;}
+
+    #fresh .box{width:100%;}
+    #fresh .box:hover .text{padding:40px;}
+    #fresh .box:hover .text_wrap>.key{font-size: 24px; margin-bottom: 20px;}
 }
 
 @media screen and (max-width:480px){
+    #fresh .title_wrap>h3{font-size:14px;}
+    #fresh .title_wrap>span{font-size:35px;}
+
+    #fresh .box:hover .text{padding:20px 40px;}
 
 }
 
