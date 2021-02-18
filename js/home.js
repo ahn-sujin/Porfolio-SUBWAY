@@ -7,7 +7,6 @@ $(function () {
     var last = 0;
 
     var index = 0;
-    var base_line = -300;
     var mvTrue = true;
 
     let visibilityIds = ['#msg']; //must be an array, could have only one element
@@ -72,29 +71,6 @@ $(function () {
         move_page();
     });
 
-    //스크롤 모션 
-    $(window).on('scroll', function () {
-        var scroll = $(this).scrollTop();
-        var page = $('.page_start');
-        var pageOffsetTop = page.offset().top;
-        
-
-        getVisibilityStatus();
-
-        $('section').each(function (num) {
-            if (scroll >= sec_pos[num] + base_line && scroll < sec_pos[num + 1]) {
-                $('section').eq(num).addClass('on');
-                $('.pagenation').children('a').removeClass('on').eq(num).addClass('on');
-            }
-        });
-
-        if($(window).scrollTop() > pageOffsetTop){
-            $('#header').addClass('on');
-        } else{
-            $('#header').removeClass('on');
-        }
-    
-    });
 
     //카운트 모션
 

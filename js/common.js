@@ -1,6 +1,10 @@
 $(function(){
 
+    //변수선언
     var win_w = $(window).width();
+    var sec_pos = [];
+    var base_line = -300;
+
 
     /*-------gnb--------------------------------------*/
     $('#gnb>li').on('mouseenter', function () {
@@ -34,6 +38,27 @@ $(function(){
         $('.bar').removeClass('on');
         $('.m_logo').removeClass('on'); 
         
+    });
+
+    //스크롤 모션 
+    $(window).on('scroll', function () {
+        var scroll = $(this).scrollTop();
+        var page = $('.page_start');
+        var pageOffsetTop = page.offset().top;
+        
+        $('section').each(function (num) {
+            if (scroll >= sec_pos[num] + base_line && scroll < sec_pos[num + 1]) {
+                $('section').eq(num).addClass('on');
+                $('.pagenation').children('a').removeClass('on').eq(num).addClass('on');
+            }
+        });
+
+        if($(window).scrollTop() > pageOffsetTop){
+            $('#header').addClass('on');
+        } else{
+            $('#header').removeClass('on');
+        }
+    
     });
   
 });
