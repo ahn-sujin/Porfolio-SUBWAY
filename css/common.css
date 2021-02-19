@@ -78,7 +78,7 @@ button{outline: none; border: none;}
     #header .gnb_wrap.on{opacity: 1; transform: translateX(0);}
 
     #gnb{margin:100px 0 0 0;}
-    #gnb>li{width:100%;}
+    #gnb>li{width:100%; height:auto;}
     #gnb>li::after{display: none;}
     #gnb>li>a{text-align:left; padding: 0 40px; font-size:20px; line-height: 60px;}
     #gnb>li>a::after{content:''; display: block; width:100%; height:1px; background: #03b653;}
