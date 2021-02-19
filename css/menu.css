@@ -1,0 +1,51 @@
+/*---------header------------------------------------------------------*/
+#header{width:100%; height:80px; background: #fff;  z-index: 2; }
+#header a{color: #444;}
+#header.on{position: fixed; box-shadow: 0px 3px 10px rgba(0,0,0,0.1);}
+
+@media screen and (max-width:768px){
+    #header {height:70px;}
+}
+@media screen and (max-width:480px){
+    #header{height:50px;}
+}
+
+/*---------menu_bar------------------------------------------------------*/
+#menu_bar{width: 100%; height:50px; border-bottom: 1px solid #f29a76; border-top: 1px solid #f29a76;}
+#menu_bar .inner{width:500px; margin: 0 auto;}
+#menu_bar .inner::after{content:''; display: block; clear: both;}
+#menu_bar ul>li{float:left; padding:0 20px; }
+#menu_bar ul>li:last-of-type{margin-right:0;}
+#menu_bar ul>li>a{display: block; text-align: center; line-height: 48px;  font-size:14px; color: #fff;}
+#menu_bar ul>li:nth-of-type(1)>a{color: #ffce33;}
+#menu_bar ul>li:nth-of-type(1)>a::after{content:''; display: block; width:89px; height:4px; background: #ffce33; margin-top: -3px;}
+#menu_bar ul>li:hover>a{color:#ffce33;}
+
+@media screen and (max-width:640px){
+    #menu_bar ul>li{padding:0 15px;}
+    #menu_bar ul>li>a{font-size:12px;}
+    #menu_bar ul>li:nth-of-type(1)>a::after{width:50px;}
+}
+
+@media screen and (max-width:480px){
+    #menu_bar{height:40px;}
+    #menu_bar ul>li{padding:0 10px;}
+    #menu_bar ul>li>a{font-size:10px; line-height: 40px;}
+}
+
+/*---------thumbnail------------------------------------------------------*/
+#thumbnail{position: relative; top:-50px; width:100%; height:380px; background:#e95b1d; z-index: -1;}
+#thumbnail .inner{width:1180px; margin: 0 auto;}
+#thumbnail .inner::after{content:''; display: block; clear: both;}
+#thumbnail .pic{}
+#thumbnail .msg{position: absolute; top:50%; left:50%; transform: translate(-50%,-40%);}
+#thumbnail .msg>h2{text-align: center; font-size:60px; color: #fff; font-weight: 900; margin-bottom: 20px;}
+#thumbnail .msg>p{text-align: center; font-size:15px; color: #fff; line-height: 26px;}
+
+/*---------sort------------------------------------------------------*/
+#sort{position: relative; top: -80px; width:100%;}
+#sort .sort_wrap{width:1180px; background: #fff; box-shadow: 5px 5px 5px rgba(0,0,0,0.1); margin: 0 auto;} 
+
+
+
+
