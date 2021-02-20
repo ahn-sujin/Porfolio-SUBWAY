@@ -1,10 +1,9 @@
 $(function(){
 
-    //변수선언
     var win_w = $(window).width();
-    var sec_pos = [];
-    var base_line = -300;
-
+    $(window).on('resize',function(){
+        win_w = $(this).width();
+    });
 
     /*-------gnb--------------------------------------*/
     $('#gnb>li').on('mouseenter', function () {
@@ -51,6 +50,21 @@ $(function(){
         }
 
     });
+
+/*-------sandwich--------------------------------------*/
+    $('#sandwich .box').on('mouseenter' ,function(){
+        $(this).addClass('on');
+    });
+
+    $('#sandwich .box').on('mouseleave' ,function(){
+        $(this).removeClass('on');
+    });
+
+    $('#thumbnail').addClass('on');    
+
+
+
+
 
 
   

@@ -1,5 +1,5 @@
 /*---------header------------------------------------------------------*/
-#header{width:100%; height:80px; background: #fff;  z-index: 2; }
+#header{width:100%; height:80px; background: #fff;  z-index: 3; }
 #header a{color: #444;}
 #header.on{position: fixed; box-shadow: 0px 3px 10px rgba(0,0,0,0.1);}
 
@@ -37,15 +37,69 @@
 #thumbnail{position: relative; top:-50px; width:100%; height:380px; background:#e95b1d; z-index: -1;}
 #thumbnail .inner{width:1180px; margin: 0 auto;}
 #thumbnail .inner::after{content:''; display: block; clear: both;}
-#thumbnail .pic{}
+
+#thumbnail .pic>img{position: absolute;}
+#thumbnail .pic>img.thumb_01{top:15%; right:5%; width:590px; opacity: 0; transform: translateY(-300px); }
+#thumbnail .pic>img.thumb_02{top:7%; left:14%; width:349px; opacity: 0; transform: translateY(300px); }
+
+#thumbnail.on .pic>img.thumb_01{opacity: 1; transform: translateY(0); transition: 0.5s 0.3s;}
+#thumbnail.on .pic>img.thumb_02{opacity: 1; transform: translateY(0); transition: 0.5s 0.3s;}
+
 #thumbnail .msg{position: absolute; top:50%; left:50%; transform: translate(-50%,-40%);}
-#thumbnail .msg>h2{text-align: center; font-size:60px; color: #fff; font-weight: 900; margin-bottom: 20px;}
-#thumbnail .msg>p{text-align: center; font-size:15px; color: #fff; line-height: 26px;}
+#thumbnail .msg>h2{
+    text-align: center; font-size:60px; color: #fff; font-weight: 900; margin-bottom: 20px;
+    opacity: 0; transform: translateY(300px);
+}
+#thumbnail .msg>p{
+    text-align: center; font-size:15px; color: #fff; line-height: 26px;
+    opacity: 0; transform: translateY(300px);
+}
+
+#thumbnail.on .msg>h2{opacity: 1; transform: translateY(0); transition: 0.5s 0s;}
+#thumbnail.on .msg>p{opacity: 1; transform: translateY(0); transition: 0.5s 0.3s;}
 
 /*---------sort------------------------------------------------------*/
-#sort{position: relative; top: -80px; width:100%;}
-#sort .sort_wrap{width:1180px; background: #fff; box-shadow: 5px 5px 5px rgba(0,0,0,0.1); margin: 0 auto;} 
+#sort{position: relative; top: -80px; width:100%; height:80px; z-index: 2;}
+#sort .sort_wrap{text-align: center; width:1180px; height:100%; background: #fff; box-shadow: 5px 5px 5px rgba(0,0,0,0.1); margin: 0 auto;} 
+#sort ul{display: inline-block;}
+#sort ul>li{float:left; padding:0 10px;}
 
+#sort ul>li>a{display: block; font-size:16px; line-height: 80px; color: #444;}
+#sort ul>li>a::after{content:''; display:inline-block; width:1px; height:15px; background: #777; opacity: 0.3; margin-left:26px;}
 
+#sort ul>li:nth-of-type(1)>a{color: #009223; font-weight: bold;}
+#sort ul>li:last-of-type>a::after{display: none;}
+#sort ul>li:hover>a{color: #009223;}
+
+/*---------sandwich------------------------------------------------------*/
+#sandwich{position: relative; top:-130px; width:100%; background: #f2f2f2; z-index: 1;}
+#sandwich .inner{width:1180px; margin: 0 auto; padding:100px 0;}
+#sandwich .inner::after{content:''; display: block; clear: both;}
+
+#sandwich .box{position: relative; float:left; width:31.333%; margin-right:3%; background: #fff; margin-bottom:40px; padding:0 40px 50px; cursor: pointer; }
+#sandwich .box:nth-of-type(3n){margin-right:0;}
+#sandwich .box .pic{width:300px; margin: 0 auto;}
+#sandwich .box .pic img{width:100%;}
+
+#sandwich .box .msg{position: absolute; top:75%; left:50%; transform: translate(-50%, -50%); text-align: center;}
+#sandwich .box .msg .name{font-size:24px; font-weight: 500; margin-bottom:20px;}
+#sandwich .box .msg span{display: inline-block; font-size:14px;}
+#sandwich .box .msg .eng{font-size:14px; color: #777; margin-right:10px;}
+#sandwich .box .msg .eng::after{content:''; display: inline-block; width:1px; height:10px; background: #ddd;}
+#sandwich .box .msg .calorie{font-size:18px; font-weight: bold; color: #ffce33;}
+#sandwich .box .intro{
+    opacity:0; position: absolute; top:55%; left:50%; transform: translate(-50%, 0%); width:75%; 
+    text-align: center; line-height: 24px; color: #c5e698;  
+}
+#sandwich .box .search{transform: scale(0,0); width:50px; height:50px; border-radius: 100%; background: #ffce33; margin:40px auto 0;}    
+#sandwich .box .search>a{display:block; color: #fff; font-size:20px; text-align: center; line-height: 50px;}
+
+#sandwich .box.on{background: #029846;}
+#sandwich .box.on .pic{opacity: 0;}
+#sandwich .box.on .msg{top:30%; transition: 0.5s;}
+#sandwich .box.on .msg .name{color: #fff;}
+#sandwich .box.on .msg .eng{color: #fff;}
+#sandwich .box.on .intro{opacity: 1; transform: translate(-50%,-50%); transition: 0.5s 0.3s; }
+#sandwich .box.on .search{opacity: 1; transform: scale(1,1);  transition: 0.5s 0.4s;}
 
 

@@ -207,8 +207,6 @@ $(function () {
 
 
 
-
-
 /*-------menu--------------------------------------*/
     $('#menu .box').on('mouseenter', function () {
         $(this).addClass('on');
@@ -291,7 +289,8 @@ $(function () {
         $(this).siblings().removeClass('on');
     });
 
- 
+
+
 
 
 
