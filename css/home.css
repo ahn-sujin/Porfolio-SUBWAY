@@ -271,7 +271,7 @@
      
 }
 #menu .pannel>li .box .msg .name{font-size:24px; font-weight: 500; margin-bottom:20px;}
-#menu .pannel>li .box .msg .span{display: inline-block; font-size:14px;}
+#menu .pannel>li .box .msg span{display: inline-block; font-size:14px;}
 #menu .pannel>li .box .msg .eng{font-size:14px; color: #777; margin-right:10px;}
 #menu .pannel>li .box .msg .eng::after{content:''; display: inline-block; width:1px; height:15px; margin-left:10px; background: #ddd;}
 #menu .pannel>li .box .msg .calorie{font-size:18px; font-weight: bold; color: #ffce33;}

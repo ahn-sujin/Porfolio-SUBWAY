@@ -22,12 +22,16 @@
 #menu_bar ul>li:hover>a{color:#ffce33;}
 
 @media screen and (max-width:640px){
+    #menu_bar .inner{width:362px;}
+
     #menu_bar ul>li{padding:0 15px;}
     #menu_bar ul>li>a{font-size:12px;}
     #menu_bar ul>li:nth-of-type(1)>a::after{width:50px;}
 }
 
 @media screen and (max-width:480px){
+    #menu_bar .inner{width:286px;}
+
     #menu_bar{height:40px;}
     #menu_bar ul>li{padding:0 10px;}
     #menu_bar ul>li>a{font-size:10px; line-height: 40px;}
@@ -58,6 +62,48 @@
 #thumbnail.on .msg>h2{opacity: 1; transform: translateY(0); transition: 0.5s 0s;}
 #thumbnail.on .msg>p{opacity: 1; transform: translateY(0); transition: 0.5s 0.3s;}
 
+@media screen and (max-width:1200px){
+    #thumbnail .inner{width:100%;}
+
+    #thumbnail .pic>img.thumb_01{top:34%; right:-5%; width:400px; }
+    #thumbnail .pic>img.thumb_02{top:18%; left:11%; width:200px;}
+
+    #thumbnail .msg>h2{font-size:50px;}
+    
+}
+
+@media screen and (max-width:980px){
+    #thumbnail .pic>img.thumb_01{top:48%; right:-8%; width:300px; }
+    #thumbnail .pic>img.thumb_02{top:18%; left:5%; width:200px;}
+}
+
+@media screen and (max-width:768px){
+    #thumbnail{height:480px;}
+
+    #thumbnail .pic>img.thumb_01{top:62%; right:-8%; width:300px; }
+    #thumbnail .pic>img.thumb_02{top:18%; left:5%; width:180px;}
+
+    #thumbnail .msg{top:47%;}
+    #thumbnail .msg>h2{font-size:40px; margin-bottom:10px;}
+    #thumbnail .msg>p{font-size:14px; line-height: 24px;}
+}
+
+@media screen and (max-width:640px){
+    #thumbnail .msg{width:70%;}
+    #thumbnail .pic>img.thumb_01{top:62%; right:-8%; width:280px; }
+}
+
+@media screen and (max-width:480px){
+    #thumbnail{height:500px;}
+
+    #thumbnail .pic>img.thumb_01{top:62%; right:-4%; width:230px; }
+    #thumbnail .pic>img.thumb_02{top:26%; left:7%; width:120px;}
+
+    #thumbnail .msg{width:80%;}
+    #thumbnail .msg>h2{font-size:32px;}
+    #thumbnail .msg>p{font-size:12px; line-height: 20px;}
+}
+
 /*---------sort------------------------------------------------------*/
 #sort{position: relative; top: -80px; width:100%; height:80px; z-index: 2;}
 #sort .sort_wrap{text-align: center; width:1180px; height:100%; background: #fff; box-shadow: 5px 5px 5px rgba(0,0,0,0.1); margin: 0 auto;} 
@@ -71,6 +117,30 @@
 #sort ul>li:last-of-type>a::after{display: none;}
 #sort ul>li:hover>a{color: #009223;}
 
+@media screen and (max-width:1200px){
+    #sort .sort_wrap{width:80%;}
+}
+
+@media screen and (max-width:768px){
+    #sort{height:70px;}
+    #sort ul>li>a{font-size:14px; line-height: 70px;}
+}
+
+@media screen and (max-width:640px){
+    #sort{height:60px;}
+    #sort .sort_wrap{width:90%;}
+
+    #sort ul>li{padding:0 10px 0 0;}
+    #sort ul>li>a{font-size:13px; line-height: 60px;}
+    #sort ul>li>a::after{margin-left:12px;}
+}
+
+@media screen and (max-width:480px){
+    #sort .sort_wrap{width:100%;}
+
+    #sort ul>li>a{font-size:12px;}
+}
+
 /*---------sandwich------------------------------------------------------*/
 #sandwich{position: relative; top:-130px; width:100%; background: #f2f2f2; z-index: 1;}
 #sandwich .inner{width:1180px; margin: 0 auto; padding:100px 0;}
@@ -78,14 +148,14 @@
 
 #sandwich .box{position: relative; float:left; width:31.333%; margin-right:3%; background: #fff; margin-bottom:40px; padding:0 40px 50px; cursor: pointer; }
 #sandwich .box:nth-of-type(3n){margin-right:0;}
-#sandwich .box .pic{width:300px; margin: 0 auto;}
+#sandwich .box .pic{width:100%; margin: 0 auto;}
 #sandwich .box .pic img{width:100%;}
 
-#sandwich .box .msg{position: absolute; top:75%; left:50%; transform: translate(-50%, -50%); text-align: center;}
+#sandwich .box .msg{position: absolute; top:75%; left:50%; transform: translate(-50%, -50%); width:70%; text-align: center;}
 #sandwich .box .msg .name{font-size:24px; font-weight: 500; margin-bottom:20px;}
 #sandwich .box .msg span{display: inline-block; font-size:14px;}
 #sandwich .box .msg .eng{font-size:14px; color: #777; margin-right:10px;}
-#sandwich .box .msg .eng::after{content:''; display: inline-block; width:1px; height:10px; background: #ddd;}
+#sandwich .box .msg .eng::after{content:''; display: inline-block; width:1px; height:10px; background: #ddd; margin-left:10px;}
 #sandwich .box .msg .calorie{font-size:18px; font-weight: bold; color: #ffce33;}
 #sandwich .box .intro{
     opacity:0; position: absolute; top:55%; left:50%; transform: translate(-50%, 0%); width:75%; 
@@ -101,5 +171,57 @@
 #sandwich .box.on .msg .eng{color: #fff;}
 #sandwich .box.on .intro{opacity: 1; transform: translate(-50%,-50%); transition: 0.5s 0.3s; }
 #sandwich .box.on .search{opacity: 1; transform: scale(1,1);  transition: 0.5s 0.4s;}
+
+@media screen and (max-width:1200px){
+    #sandwich{padding:0px 40px;}
+    #sandwich .inner{width:100%;}
+
+    #sandwich .box .pic{margin: 30px auto 0;}
+    #sandwich .box .intro{font-size:14px;}
+
+    #sandwich .box.on .msg{top:25%;}
+    #sandwich .box.on .intro{transform: translate(-50%,-60%);}
+}
+
+@media screen and (max-width:980px){
+    #sandwich{padding:0px 40px;}
+
+    #sandwich .box{width:48.5%;}
+    #sandwich .box:nth-of-type(2n){margin-right: 0;}
+    #sandwich .box:nth-of-type(3),
+    #sandwich .box:nth-of-type(9){margin-right:3%;}
+
+}
+
+@media screen and (max-width:768px){
+    #sandwich .box{padding:0 30px 30px;}
+    #sandwich .box .pic{margin:15px auto 0;}
+
+    #sandwich .box .msg .name{font-size:20px; margin-bottom: 15px;}
+    #sandwich .box .msg .eng{font-size:13px;}
+    #sandwich .box .msg .calorie{font-size:16px;}
+    #sandwich .box .intro{font-size:13px; line-height: 20px;}
+    #sandwich .box .search{width:40px; height:40px;}    
+    #sandwich .box .search>a{font-size:16px; line-height: 40px;}
+
+    #sandwich .box.on .intro{transform: translate(-50%,-50%);}
+}
+
+@media screen and (max-width:640px){
+    #sandwich{padding:0px 20px;}
+
+    #sandwich .box{width:100%; margin-right:0;}
+    #sandwich .box .intro{font-size:16px; line-height: 26px;}
+    #sandwich .box .search{width:50px; height:50px;}    
+    #sandwich .box .search>a{font-size:20px; line-height: 50px;}
+
+}
+
+@media screen and (max-width:480px){
+    #sandwich .box .intro{font-size:14px; line-height: 24px;}
+    #sandwich .box .search{width:40px; height:40px;}    
+    #sandwich .box .search>a{font-size:16px; line-height: 40px;}
+    
+}
 
 
