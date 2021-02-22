@@ -255,7 +255,7 @@ table{border-collapse: collapse; border-spacing: 0; width:100%;}
 #fresh .title_wrap .green{color: #009223;}
 
 #fresh .box_wrap{margin-top:60px;}
-#fresh .box{position: relative; float:left; width:31.333%; margin-right:3%;}
+#fresh .box{position: relative; float:left; width:31.333%; margin-right:3%; cursor: pointer;}
 #fresh .box:last-of-type{margin-right:0;}
 #fresh .box img{width:100%;}
 #fresh .box .text{
@@ -323,14 +323,43 @@ table{border-collapse: collapse; border-spacing: 0; width:100%;}
 }
 
 
+/*---------list_btn------------------------------------------------------*/
+#list_btn{width:100%;  padding:100px 0;  background: #f2f2f2;}
+#list_btn .inner{position: relative; width:1180px; margin: 0 auto;}
+#list_btn .inner::after{content:''; display: block; clear: both;}
 
+#list_btn .btn{
+    position: absolute; top:50%; left:50%; transform: translate(-50%,-50%);
+    width:150px; height:50px; background: #009223; border-radius: 30px;
+}
+#list_btn .btn>a{display: block; text-align: center; font-size: 18px; color: #fff; line-height: 50px;}
+#list_btn .btn>a::before{content:'\f0c9'; font-family: 'Font Awesome 5 Free'; font-weight: 900; color: #ffce33; margin-right:10px;}
 
+@media screen and (max-width:1200px){
+    #list_btn .inner{width:100%;}
+}
 
+@media screen and (max-width:980px){
+    #list_btn{padding:80px 40px;}
+}
 
+@media screen and (max-width:768px){
+    #list_btn{padding:60px 40px;}
 
+    #list_btn .btn{width:120px; height:40px;}
+    #list_btn .btn>a{font-size: 16px;line-height: 40px;}
+    #list_btn .btn>a::before{margin-right:10px;}
+}
 
+@media screen and (max-width:640px){
+    #list_btn{padding:60px 20px;}
+}
 
-
+@media screen and (max-width:480px){
+    #list_btn .btn{width:120px; height:40px;}
+    #list_btn .btn>a{font-size: 14px; line-height:40px;}
+    
+}
 
 
 
