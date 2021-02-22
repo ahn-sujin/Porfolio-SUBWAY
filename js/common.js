@@ -51,6 +51,20 @@ $(function(){
 
     });
 
+/*-------lnb--------------------------------------*/
+    var lnb = $('#lnb').offset().top;
+
+    $(window).scroll(function(){
+        var win = $(this).scrollTop();
+
+        if(lnb <= win){
+            $('#lnb').addClass('on');
+        }else{
+            $('#lnb').removeClass('on');
+        }
+    });
+
+
 /*-------sandwich--------------------------------------*/
     $('#sandwich .box').on('mouseenter' ,function(){
         $(this).addClass('on');
