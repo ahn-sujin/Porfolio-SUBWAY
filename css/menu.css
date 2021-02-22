@@ -171,6 +171,7 @@
 #sandwich .box .search>a{display:block; color: #fff; font-size:20px; text-align: center; line-height: 50px;}
 
 #sandwich .box.on{background: #029846;}
+#sandwich .box.on .label{opacity: 0;}
 #sandwich .box.on .pic{opacity: 0;}
 #sandwich .box.on .msg{top:30%; transition: 0.5s;}
 #sandwich .box.on .msg .name{color: #fff;}
@@ -229,6 +230,7 @@
 }
 
 @media screen and (max-width:480px){
+    #sandwich .box .msg {width:100%; height:70px;}
     #sandwich .box .intro{font-size:14px; line-height: 24px;}
     #sandwich .box .search{width:40px; height:40px;}    
     #sandwich .box .search>a{font-size:16px; line-height: 40px;}
